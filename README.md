@@ -1,4 +1,4 @@
-# 3d
+# 3dbox
 My 3d utilities, for creating electronic boxes, using OpenSCAD
 
 Usage (to create a box of inner size 70 x 80 x 30 mm:
