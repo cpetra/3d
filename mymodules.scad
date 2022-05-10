@@ -122,6 +122,53 @@ module boxlid(width, length, thickness, mountwidth, mountholewidth)
     }
 }
 
+module boxlid_open(width, length, thickness, mountwidth, mountholewidth, count, offset_open = 5, percent_open = 50)
+{   
+    // we need to make the lid a bit smallor, or it usually won't fit
+    tolerance = 1;
+    size = [width - tolerance, length - tolerance, thickness];
+    w_offset = (width - mountwidth) / 2.0;
+    l_offset = (length - mountwidth) / 2.0;
+    
+    // So we have to fit some holes in the lid, but it needs to look symmetrical
+    // we have the equation (simplified naming):
+    // n = count, y = length_separator, x = length_open, percent = percent_open
+    // n * x + (n - 1) * y = xlength
+    // x / y = percent / (100 - percent) -> x = y * percent / (100 - percent)
+    // 
+    // n * y * percent / (100 -percent) + (n - 1) * y = xlength 
+    // y (n * percent / (100 - percent) + (n - 1)) = xlength
+    // y = xlength / ((n * percent / (100 - percent) + (n - 1))
+    
+    xlength = (length - tolerance - (2 * offset_open)); // the actual length, without the margins
+    length_separator = xlength / ((count * percent_open / (100 - percent_open) + count - 1));
+    length_open = length_separator * percent_open / (100 - percent_open);
+
+    length_total = length_separator + length_open;
+    width_open  = (width  - tolerance - (2 * offset_open));
+    
+    size_open = [ width_open, length_open, thickness + 1 ];
+    
+    difference() {
+        cube(size, center = true);
+        translate([+w_offset, +l_offset, 0]) 
+            cylinder(thickness + tolerance, mountholewidth / 2 + tolerance, center = true);
+        translate([+w_offset, -l_offset, 0]) 
+            cylinder(thickness + 2, mountholewidth / 2 + 1, center = true);
+        translate([-w_offset, -l_offset, 0]) 
+            cylinder(thickness + 2, mountholewidth / 2 + 1, center = true);
+        translate([-w_offset, +l_offset, 0]) 
+            cylinder(thickness + 2, mountholewidth / 2 + 1, center = true);
+ 
+        start = - (length - tolerance - length_open) / 2.0 + offset_open;
+        for ( i = [0 : count - 1] ) {
+            translate ([0, start + i * (length_total), 0])
+                cube(size_open, center = true);
+        }
+    }
+}
+
+
 module pad(x, y, width, height, holewidth)
 {
    translate([x, y, height / 2]) difference() {
