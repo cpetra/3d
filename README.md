@@ -22,3 +22,6 @@ Filled lid
 Lid with holes
 
 ![body](https://github.com/cpetra/3d/blob/master/data/lid2.png)
+
+Credits:
+ - Roundedcube: https://danielupshaw.com/openscad-rounded-corners/
