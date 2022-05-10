@@ -11,4 +11,14 @@ This will create two stl files that can be imported in any slicer:
 
 *box_lid_70_80_30.stl*
 
+Results of the body export
 
+![body](https://github.com/cpetra/3d/blob/master/data/box_body.png)
+
+Filled lid
+
+![body](https://github.com/cpetra/3d/blob/master/data/lid1.png)
+
+Lid with holes
+
+![body](https://github.com/cpetra/3d/blob/master/data/lid2.png)
