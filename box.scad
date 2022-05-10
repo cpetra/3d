@@ -15,7 +15,7 @@ mountholeheight = 6;
 
 // circuit parameters
 preview = true; // set to false if printing this
-lidmode = 1; // true if you want the lid, false if you want the box
+lidmode = 0; // true if you want the lid, false if you want the box
   lid_holes = 0; // how many aeration holes stripes to be opened on the lid
   lid_percentfill = 40; // percent of aeration in the lid
   lid_holeoffset = 5; // in mm, the offset from the margin of the box
