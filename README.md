@@ -10,6 +10,9 @@ This will create two stl files that can be imported in any slicer:
 *box_box_70_80_30.stl*
 
 *box_lid_70_80_30.stl*
+```
+Many other parameters can be set, have a look at the code.
+```
 
 Results of the body export
 
