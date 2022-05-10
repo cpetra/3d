@@ -13,21 +13,11 @@ mountwidth = 6;
 mountholewidth = 2;
 mountholeheight = 6;
 
-// circuit parameters
-preview = true; // set to false if printing this
+// lid parameters
 lidmode = 0; // true if you want the lid, false if you want the box
-  lid_holes = 0; // how many aeration holes stripes to be opened on the lid
-  lid_percentfill = 40; // percent of aeration in the lid
+  lid_holes = 12; // how many aeration holes stripes to be opened on the lid
+  lid_percentfill = 50; // percent of aeration in the lid
   lid_holeoffset = 5; // in mm, the offset from the margin of the box
- 
-lidfill = 50;
-c_width = 46;
-c_length = 25;
-c_holewidth = 3;
-c_holemargin = 1.5;
-
-
-
 
 if (!lidmode) {
     circuitbox(width, length, height, thickness, roundness,
