@@ -92,13 +92,13 @@ module basebox(width, length, height, thickness, roundness)
  
     // the box itself
     union() {
-    difference() {
-        roundedcube(sizeouter, true, roundness, false);
-        translate([0, 0, thickness]);
-    };
-    translate([0, 0, height / 2 - 3])
-        lidsupport(thickness + 1, thickness, thickness,
-                width + thickness * 2 - 1, length + thickness * 2 - 1);
+        difference() {
+            roundedcube(sizeouter, true, roundness, false);
+            translate([0, 0, thickness]);
+        };
+        translate([0, 0, height / 2 - 3])
+            lidsupport(thickness + 1, thickness, thickness,
+                    width + thickness * 2 - 1, length + thickness * 2 - 1);
     }
 }
 
